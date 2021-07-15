@@ -1,14 +1,13 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { RootNavigator } from './src/navigators/RootNavigator';
+import { StyleSheet, SafeAreaView, Platform } from 'react-native';
+import { Header } from './src/components/Header';
+import { Navigator } from "./src/navigators/Navigator";
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <NavigationContainer >
-        <RootNavigator />
-      </NavigationContainer>
+    <SafeAreaView style={styles.container}>
+      <Header />
+      <Navigator />
     </SafeAreaView>
   );
 }
@@ -16,8 +15,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: '#f8f8f8',
     justifyContent: 'space-between',
+    backgroundColor: '#f8f8f8',
+    fontSize: 16,
+    fontFamily: Platform.OS === 'android' ? 'lato' : 'Lato',
   },
 });
