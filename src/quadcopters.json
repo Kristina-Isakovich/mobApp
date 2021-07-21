@@ -2,7 +2,6 @@
   {
     "id": 0,
     "name": "DJI Air 2S",
-    "img": "assets/img/q_0.png",
     "price": 1424,
     "about": "The Mavic 2 offers iconic Hasselblad image quality on Pro and a high-performance zoom lens on Zoom.",
     "stars": 4.2
@@ -10,7 +9,6 @@
   {
     "id": 1,
     "name": "DJI Mavic Mini",
-    "img": "assets/img/q_1.png",
     "price": 990.90,
     "about": "The Mavic 2 offers iconic Hasselblad image quality on Pro and a high-performance zoom lens on Zoom.",
     "stars": 4.5
@@ -18,7 +16,6 @@
   {
     "id": 2,
     "name": "DJI’s Matrice 200",
-    "img": "assets/img/q_2.png",
     "price": 2780.30,
     "about": "The Mavic 2 offers iconic Hasselblad image quality on Pro and a high-performance zoom lens on Zoom.",
     "stars": 3.8

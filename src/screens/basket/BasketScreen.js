@@ -1,16 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { GlobalStyles } from '../../styles/globalStyles';
 
 export const BasketScreen = () => (
-  <View style={styles.basket}>
+  <View style={GlobalStyles.container}>
     <Text>Basket</Text>
   </View>
 )
-
-const styles = StyleSheet.create({
-  basket: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

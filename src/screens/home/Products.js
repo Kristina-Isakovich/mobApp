@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Buttons } from "./Buttons";
-import { Quadcopters } from "./Quadcopters";
+import { Buttons } from './Buttons';
+import { Quadcopters } from './Quadcopters';
+import { sizes, fonts } from '../../styles/style.json'
+import { deviceHeight } from '../../device';
 
-export const Products = () => {
-  const [activeTab, setActiveTab] = useState(0)
+export const Products = ({navigation}) => {
+  const [activeTab, setActiveTab] = useState(0);
   let title = 'All Quadcopters';
 
   switch (activeTab) {
@@ -26,7 +28,7 @@ export const Products = () => {
     <View style={styles.products}>
       <Buttons activeTab={activeTab} setActiveTab={setActiveTab}/>
       <Text style={styles.title}>{title}</Text>
-      <Quadcopters activeTab={activeTab}/>
+      <Quadcopters activeTab={activeTab} navigation={navigation}/>
     </View>
   )
 }
@@ -34,11 +36,10 @@ export const Products = () => {
 const styles = StyleSheet.create({
   products: {
     flexDirection: 'column',
-    justifyContent: 'space-between'
   },
   title: {
-    fontWeight: '700',
-    fontSize: 20,
-    marginBottom: 20
+    fontFamily: fonts.bold,
+    fontSize: sizes.title,
+    marginBottom: deviceHeight * 2.5 / 100,
   }
 });

@@ -9,9 +9,15 @@
     "bg": "#f8f8f8"
   },
   "sizes": {
-
+    "min": 14,
+    "mainText": 16,
+    "title": 20,
+    "maxTitle": 24,
+    "max": 28
   },
   "fonts": {
-
+    "regular": "lato-regular",
+    "bold": "lato-bold",
+    "extraBold": "lato-extraBold"
   }
 }

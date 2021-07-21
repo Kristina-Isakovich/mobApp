@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { colors } from '../../style.json';
+import { colors, sizes, fonts } from '../../styles/style.json';
+import { deviceHeight } from '../../device';
 
 export const HomeHeader = () => (
     <View style={styles.header}>
@@ -16,11 +17,12 @@ export const HomeHeader = () => (
 const styles = StyleSheet.create({
   header: {
     position: 'relative',
-    height: 164,
-    marginBottom: 32,
+    height: deviceHeight * 20 / 100,
+    marginBottom: deviceHeight * 4 / 100,
     backgroundColor: colors.accent,
     borderRadius: 20,
-    shadowColor: 'rgba(0, 0, 0, 0.15)',
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
     shadowOffset: {width: 2, height: 2},
     shadowRadius: 16
   },
@@ -32,27 +34,24 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontWeight: '700',
-    fontSize: 14,
-    lineHeight: 17,
+    fontFamily: fonts.bold,
+    fontSize: sizes.min,
   },
   name: {
     color: '#fff',
-    fontWeight: '800',
-    fontSize: 24,
-    lineHeight: 32,
+    fontFamily: fonts.extraBold,
+    fontSize: sizes.maxTitle,
   },
   price: {
     color: '#fff',
-    fontWeight: '700',
-    fontSize: 20,
-    lineHeight: 24,
+    fontFamily: fonts.bold,
+    fontSize: sizes.title,
   },
   img: {
     position: 'absolute',
     top: 0,
     right: 0,
-    height: 164,
+    height: '100%',
     width: 233
   }
 });

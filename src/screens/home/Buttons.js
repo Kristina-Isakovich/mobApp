@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { colors } from '../../style.json';
+import { colors, fonts, sizes } from '../../styles/style.json';
+import { deviceHeight } from '../../device';
 
 const buttons = [
   {
@@ -27,7 +28,7 @@ export const Buttons = ({activeTab, setActiveTab}) => {
       {buttons.map(({indexId, name}) => (
         <TouchableOpacity key={indexId}
           onPress={() => {
-            setActiveTab(indexId)
+            setActiveTab(indexId);
           }}
           style={activeTab === indexId ? styles.activeBtn : styles.btn}
         >
@@ -42,34 +43,35 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 28
+    marginBottom: deviceHeight * 3.5 / 100
   },
   activeBtn: {
-    height: 46,
+    height: deviceHeight * 6 / 100,
     width: 78,
     paddingTop: 12,
     paddingBottom: 12,
-    alignItems: "center",
+    alignItems: 'center',
     borderRadius: 12,
     backgroundColor: colors.accent
   },
   btn: {
-    height: 46,
+    height: deviceHeight * 6 / 100,
     width: 78,
     paddingTop: 12,
     paddingBottom: 12,
-    alignItems: "center",
+    alignItems: 'center',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: colors.lightGray,
+    borderColor: colors.lightGray
   },
   name: {
-    fontSize: 16,
+    fontFamily: fonts.regular,
+    fontSize: sizes.mainText,
     color: colors.blackMain,
   },
   activeName: {
-    fontSize: 16,
+    fontFamily: fonts.regular,
+    fontSize: sizes.mainText,
     color: colors.white,
   }
 });
-

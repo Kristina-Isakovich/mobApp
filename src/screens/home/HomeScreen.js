@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { HomeHeader } from "./HomeHeader";
-import { Products } from "./Products";
+import { HomeHeader } from './HomeHeader';
+import { Products } from './Products';
+import { colors } from '../../styles/style.json'
+import { deviceHeight } from '../../device';
 
-export const HomeScreen = () => (
+export const HomeScreen = ({navigation}) => (
   <View style={styles.home}>
-    <HomeHeader />
-    <Products />
+    <HomeHeader/>
+    <Products navigation={navigation}/>
   </View>
 )
 
@@ -14,10 +16,9 @@ const styles = StyleSheet.create({
   home: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    paddingLeft: 16,
-    paddingRight: 16,
-    paddingBottom: 28,
-    backgroundColor: '#f8f8f8'
+    paddingTop: deviceHeight * 3 / 100,
+    paddingHorizontal: 16,
+    paddingBottom: deviceHeight * 3.5 / 100,
+    backgroundColor: colors.bg
   },
 });

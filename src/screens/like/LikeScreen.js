@@ -1,16 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { GlobalStyles } from '../../styles/globalStyles';
 
 export const LikeScreen = () => (
-  <View style={ styles.like }>
+  <View style={GlobalStyles.container}>
     <Text>Like</Text>
   </View>
 )
-
-const styles = StyleSheet.create({
-  like: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

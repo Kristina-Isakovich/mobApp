@@ -1,16 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { GlobalStyles } from '../../styles/globalStyles';
 
 export const SearchScreen = () => (
-  <View style={styles.search}>
+  <View style={GlobalStyles.container}>
     <Text>Search</Text>
   </View>
 )
-
-const styles = StyleSheet.create({
-  search: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
