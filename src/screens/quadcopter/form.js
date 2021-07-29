@@ -5,6 +5,7 @@ import { deviceHeight } from '../../device';
 import { ModalOk } from './modal';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { MaskedInput } from 'react-native-ui-lib';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,6 +17,20 @@ const SignupSchema = Yup.object().shape({
 
 export const Form = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const renderPhone = (value) => {
+    const arrValue = value.split('');
+    const displayPhone = i => arrValue[i] ? arrValue[i] : '_';
+
+    return (
+      <Text style={styles.input}>
+        +375{'   '}({displayPhone(0)}{displayPhone(1)})
+        {displayPhone(2)}{displayPhone(3)}{displayPhone(4)}
+        -{displayPhone(5)}{displayPhone(6)}
+        -{displayPhone(7)}{displayPhone(8)}
+      </Text>
+    )
+  }
 
   return (
     <Formik
@@ -37,17 +52,20 @@ export const Form = () => {
                 value={props.values.name}
                 onBlur={props.handleBlur('name')}
               />
-              {props.touched.name && props.errors.name && <Text style={styles.error}>{props.touched.name && props.errors.name}</Text>}
+              {props.touched.name && props.errors.name &&
+              <Text style={styles.error}>{props.touched.name && props.errors.name}</Text>}
             </View>
 
-            <TextInput
-              style={styles.input}
-              placeholder='+375 (__)___-__-__'
+            <MaskedInput
+              renderMaskedText={renderPhone}
+              maxLength={9}
+              keyboardType='numeric'
               onChangeText={props.handleChange('phone')}
               value={props.values.phone}
               onBlur={props.handleBlur('phone')}
             />
-            {props.touched.phone && props.errors.phone && <Text style={styles.error}>{props.touched.phone && props.errors.phone}</Text>}
+            {props.touched.phone && props.errors.phone &&
+            <Text style={styles.error}>{props.touched.phone && props.errors.phone}</Text>}
           </View>
 
           <TouchableOpacity
@@ -71,8 +89,10 @@ const styles = StyleSheet.create({
     marginBottom: deviceHeight * 3.5 / 100
   },
   button: {
-    padding: 12,
+    height: deviceHeight * 6 / 100,
+    paddingHorizontal: 12,
     borderRadius: 8,
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.accent
   },

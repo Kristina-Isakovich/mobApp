@@ -1,35 +1,11 @@
 import React from 'react';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import quadcopters from '../../quadcopters.json';
 import { Icon } from '../../components/Icon';
 import { colors, fonts, sizes } from '../../styles/style.json';
 import { deviceHeight } from '../../device';
 import { getImage } from '../../utils/getImage';
 
-export const Quadcopters = ({activeTab, navigation}) => {
-  let DATA = [];
-  switch (activeTab) {
-    case 0:
-      DATA = quadcopters;
-      break;
-    case 1:
-      DATA.push(quadcopters.reduce(
-        (acc, curr) => acc.price < curr.price
-          ? acc
-          : curr
-        , {}));
-      break;
-    case 2:
-      DATA.push(quadcopters.reduce(
-        (acc, curr) => acc.stars > curr.stars
-          ? acc
-          : curr
-        , {}));
-      break;
-    case 3:
-      DATA.push(quadcopters[2]);
-      break;
-  }
+export const Quadcopters = ({data, navigation}) => {
 
   const CardQuadcopter = ({item}) => (
       <TouchableOpacity
@@ -54,8 +30,9 @@ export const Quadcopters = ({activeTab, navigation}) => {
 
   return (
     <FlatList
-      data={DATA}
+      data={data}
       keyExtractor={(item) => item.id.toString()}
+      showsHorizontalScrollIndicator={false}
       horizontal={true}
       renderItem={CardQuadcopter}>
     </FlatList>

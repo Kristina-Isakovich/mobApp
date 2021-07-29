@@ -48,8 +48,7 @@ const styles = StyleSheet.create({
   activeBtn: {
     height: deviceHeight * 6 / 100,
     width: 78,
-    paddingTop: 12,
-    paddingBottom: 12,
+    justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
     backgroundColor: colors.accent
@@ -57,8 +56,7 @@ const styles = StyleSheet.create({
   btn: {
     height: deviceHeight * 6 / 100,
     width: 78,
-    paddingTop: 12,
-    paddingBottom: 12,
+    justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
     borderWidth: 1,

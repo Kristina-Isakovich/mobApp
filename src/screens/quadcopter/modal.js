@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Modal } from 'react-native';
 import { Icon } from '../../components/Icon';
 import { colors, fonts, sizes } from '../../styles/style.json';
+import { deviceHeight } from '../../device';
 
 export const ModalOk = ({modalVisible, setModalVisible}) => {
   return (
@@ -49,9 +50,11 @@ const styles = StyleSheet.create({
     marginBottom: 16
   },
   buttonClose: {
+    height: deviceHeight * 6 / 100,
     width: 146,
     borderRadius: 8,
-    padding: 12,
+    paddingHorizontal: 12,
+    justifyContent: 'center',
     backgroundColor: colors.accent
   },
   textStyle: {
