@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, TextInput } from 'react-native';
 import { colors, fonts, sizes } from '../../styles/style.json';
 import { deviceHeight } from '../../device';
@@ -9,18 +9,20 @@ import { MaskedInput } from 'react-native-ui-lib';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, 'Too Short!')
-    .required('Required'),
+    .min(3, 'Слишком короткое имя')
+    .required('Обязательное поле'),
   phone: Yup.string()
-    .required('Required'),
+    .min(9, 'Введите номер')
+    .required('Обязательное поле'),
 });
 
 export const Form = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  let phone = null;
 
   const renderPhone = (value) => {
-    const arrValue = value.split('');
-    const displayPhone = i => arrValue[i] ? arrValue[i] : '_';
+    phone = value.split('');
+    const displayPhone = i => phone[i] ? phone[i] : '_';
 
     return (
       <Text style={styles.input}>
@@ -38,6 +40,7 @@ export const Form = () => {
       validationSchema={SignupSchema}
       onSubmit={(values, actions) => {
         actions.resetForm();
+        phone = null;
         setModalVisible(true);
       }}
     >
@@ -57,6 +60,7 @@ export const Form = () => {
             </View>
 
             <MaskedInput
+              key={modalVisible}
               renderMaskedText={renderPhone}
               maxLength={9}
               keyboardType='numeric'
